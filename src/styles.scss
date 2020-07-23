@@ -1,0 +1,92 @@
+$big-size : 25px;
+$mobile-big-size: 15px;
+$card-text-size: 14px;
+$mobile-card-text-size: 10px;
+$background-color: #f2f5f3;
+$global-background: white;
+$corner-radius: 20px;
+
+.nav-item {
+    color: black;
+    cursor: pointer;
+    font-size: $big-size;
+}
+
+.card {
+    margin: 2%;
+    font-size: $card-text-size;
+    background-color: $background-color !important;
+}
+
+.my-card {
+    border-radius: $corner-radius !important;
+}
+
+.card-row {
+    padding-top: 2%;
+}
+
+.button-section {
+    padding-top: 6%;
+}
+
+.nav-link.active {
+    border: 2px solid;
+    border-color: #ffffff #ffffff blue;
+}
+
+.my-button {
+    border-style:none;
+    background-color: $background-color;
+    font-size: $big-size;
+}
+
+.parent-column {
+    padding: 1%;
+    font-size: $big-size;
+    border: 2px solid $background-color;
+}
+
+.document-card-text {
+    font-size: $big-size;
+}
+
+.btn-danger {
+    width: 140px;
+    height: 50px;
+    font-size: $mobile-big-size;
+    border-radius: 10px !important;
+}
+
+.back-button {
+    border-style:none;
+    background-color: $background-color;
+    background-color: $global-background;
+    margin: 10px;
+}
+
+.my-upload-btn {
+    width: 100px;
+}
+
+@media screen and (max-width: 992px) {
+    .nav-item {
+        font-size: $mobile-big-size;
+    }
+    .card {
+        font-size: $mobile-card-text-size;
+    }
+    .parent-column { 
+        font-size: $mobile-big-size;
+    }
+    .document-card-text {
+        font-size: 12px;
+    }
+    .btn-danger {
+        // padding-left: none !important;
+        width: 90px;
+        height: 38px;
+        font-size: $card-text-size;
+    }
+}
+

@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col-12">
+        <button (click)="goBack()" class="back-button"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-left-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+          </svg>Back </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-6 parent-column">
+        <div class="row">
+            <div class="col-6">
+                <b>Certificates</b>
+            </div>
+            <div class="col-6" style="text-align:right">
+                <input style="display: none" type="file" (change)="handleFileInput($event.target.files, 'certificate')" #hiddenfileinput>
+                <button (click)="hiddenfileinput.click()"  class="btn btn-primary">Add File</button>
+            </div>
+        </div>
+        <div class="row" *ngIf="certificateFiles.length > 0">
+            <div class="col-12" *ngFor="let cert of certificateFiles let i = index">
+                <div class="card">
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <span class="document-card-text">{{i+1}}.{{cert.fileName}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <span style="padding-left: 10%;">{{cert.size}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <button class="btn btn-danger document-card-text"><svg width="12px" height="12px" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+                                    <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+                                  </svg> Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" Style="text-align: center;" *ngIf="certificateFiles.length == 0">
+            <div class="col-12 ">
+                <div class="card">
+                    <h4>Files are pending please add</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-6 parent-column">
+        <div class="row">
+            <div class="col-6">
+                <b>Medical Reports</b>
+            </div>
+            <div class="col-6" style="text-align:right">
+                <input style="display: none" type="file" accept=".jpeg,.pdf,.png,.jpg" (change)="handleFileInput($event.target.files, 'medical')" #hiddenfileinput1>
+                <button (click)="hiddenfileinput1.click()"  class="btn btn-primary">Add File</button>
+            </div>
+        </div>
+        <div class="row" *ngIf="certificateFiles.length > 0">
+            <div class="col-12" *ngFor="let cert of medicalFiles let i = index">
+                <div class="card">
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <span class="document-card-text">{{i+1}}.{{cert.fileName}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <span style="padding-left: 10%;">{{cert.size}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <button class="btn btn-danger document-card-text"><svg width="12px" height="12px" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+                                    <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+                                  </svg> Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" Style="text-align: center;" *ngIf="medicalFiles.length == 0">
+            <div class="col-12 ">
+                <div class="card">
+                    <h4>Files are pending please add</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
