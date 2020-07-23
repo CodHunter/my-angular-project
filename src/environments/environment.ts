@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:3000/'
+  baseUrl: 'https://api.jsonbin.io/b/5f19786cc1edc466175cca22/'
 };
 
 /*

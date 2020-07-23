@@ -19,6 +19,7 @@ export class DocumentStatusComponent implements OnInit, OnDestroy {
   f: MyFile;
   fileData: any;
   claimdata: any;
+  originalData: any;
 
   constructor(private claimService: ClaimServiceService, private route: ActivatedRoute, private router: Router) { }
 
@@ -32,10 +33,14 @@ export class DocumentStatusComponent implements OnInit, OnDestroy {
 }
 
 getDocuments(id): void {
-  this.claimService.getDocument(id).subscribe(data => {
-    this.fileData = data;
-    console.log(data);
-    data.documents.forEach(element => {
+  this.claimService.getDocument().subscribe(data => {
+    this.originalData = data;
+    data.claimDocument.forEach( el => {
+      if (el.id === id) {
+        this.fileData = el;
+      }
+    });
+    this.fileData.documents.forEach(element => {
       if (element.fileType === 'certificate') {
         this.certificateFiles.push(element);
         this.noOfCerti++;
@@ -54,24 +59,29 @@ goBack() {
 handleFileInput(files: FileList, type): void {
   this.fileToUpload = files.item(0);
   this.f = new MyFile(this.fileToUpload.name, type, this.fileToUpload.size/1000 + 'MB');
-  this.fileData.documents.push(this.f);
-  console.log(this.fileData);
+  this.originalData.claimDocument.forEach(el => {
+    if (el.id === this.id) {
+      el.documents.push( this.f);
+    }
+  });
+  // this.fileData.documents.push(this.f);
+  console.log(this.originalData);
   if (type === 'certificate') {
     this.noOfCerti++;
   } else {
     this.noOfMed++;
   }
-  this.claimService.updateDocument(this.id, this.fileData).subscribe(data => {
+  this.claimService.updateDocument(this.id, this.originalData).subscribe(data => {
     if (this.noOfMed > 0 && this.noOfCerti > 0) {
     this.claimService.getClaimsData().subscribe(data1 => {
-      data1.forEach(element => {
+      data1.claims.forEach(element => {
         if (element.id === this.id  && element.claimDetails.claimStatus === 'ADDITIONAL_INFO_REQUIRED') {
           this.claimdata = element;
           this.claimdata.claimDetails.claimStatus = 'IN_PROGRESS';
-          this.claimService.saveClaimsData(this.id, this.claimdata).subscribe(data2 => {
-            console.log(data2);
-          });
         }
+      });
+      this.claimService.saveClaimsData(this.id, data1).subscribe(data2 => {
+        console.log(data2);
       });
     });
   }

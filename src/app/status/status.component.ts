@@ -16,7 +16,7 @@ export class StatusComponent implements OnInit {
 
   ngOnInit(): void {
     this.claimService.getClaimsData().subscribe(data => {
-      this.claimData = data;
+      this.claimData = data.claims;
     });
   }
 

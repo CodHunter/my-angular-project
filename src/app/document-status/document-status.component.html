@@ -12,7 +12,7 @@
                 <b>Certificates</b>
             </div>
             <div class="col-6" style="text-align:right">
-                <input style="display: none" type="file" (change)="handleFileInput($event.target.files, 'certificate')" #hiddenfileinput>
+                <input style="display: none" type="file" accept=".jpeg,.pdf,.png,.jpg" (change)="handleFileInput($event.target.files, 'certificate')" #hiddenfileinput>
                 <button (click)="hiddenfileinput.click()"  class="btn btn-primary">Add File</button>
             </div>
         </div>
