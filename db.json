@@ -1,19 +1,75 @@
 {
-  "posts": [
+  "claims": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "id": "CL3424234",
+      "patientDetails": {
+        "firstName": "John",
+        "lastName": "Smith"
+      },
+      "claimDetails": {
+        "claimNumber": "CL3424234",
+        "dateSubmitted": "2007-04-26T00:00:00",
+        "claimStatus": "COMPLETED"
+      }
+    },
+    {
+      "id": "CL34243334",
+      "patientDetails": {
+        "firstName": "John",
+        "lastName": "Smith"
+      },
+      "claimDetails": {
+        "claimNumber": "CL34243334",
+        "dateSubmitted": "2010-04-26T00:00:00",
+        "claimStatus": "ADDITIONAL_INFO_REQUIRED"
+      }
+    },
+    {
+      "id": "CL34234334",
+      "patientDetails": {
+        "firstName": "Steve",
+        "lastName": "Bernard"
+      },
+      "claimDetails": {
+        "claimNumber": "CL34234334",
+        "dateSubmitted": "2013-04-26T00:00:00",
+        "claimStatus": "NOT_RECEIVED"
+      }
     }
   ],
-  "comments": [
+  "claimDocument": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": "CL34234334",
+      "documents": [
+        {
+          "fileName": "certificate1.pdf",
+          "fileType": "certificate",
+          "size": "2MB"
+        },
+        {
+          "fileName": "certificate2.pdf",
+          "fileType": "certificate",
+          "size": "1MB"
+        },
+        {
+          "fileName": "Sutanu Sarkhel.docx",
+          "fileType": "medical",
+          "size": "27.428MB"
+        },
+        {
+          "fileName": "1044550_sutanu.docx",
+          "fileType": "medical",
+          "size": "87.951MB"
+        }
+      ]
+    },
+    {
+      "id": "CL34243334",
+      "documents": []
+    },
+    {
+      "id": "CL3424234",
+      "documents": []
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
