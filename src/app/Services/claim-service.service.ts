@@ -42,7 +42,7 @@ export class ClaimServiceService {
         'versioning': 'false'
       })
     };
-    return this.http.put('https://api.jsonbin.io/b/5f19885a9180616628476815/1' , myObj, option1);
+    return this.http.put('https://api.jsonbin.io/b/5f19885a9180616628476815' , myObj, option1);
   }
 
   saveClaimsData(id, myObj): Observable<any> {
