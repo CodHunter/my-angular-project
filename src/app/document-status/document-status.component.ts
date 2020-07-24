@@ -80,12 +80,12 @@ handleFileInput(files: FileList, type): void {
         if (element.id === this.id  && element.claimDetails.claimStatus === 'ADDITIONAL_INFO_REQUIRED') {
           this.claimdata = element;
           this.claimdata.claimDetails.claimStatus = 'IN_PROGRESS';
+          this.claimService.saveClaimsData(this.id, data1).subscribe(data2 => {
+            console.log(data2);
+          });
         }
       });
-      this.claimService.saveClaimsData(this.id, data1).subscribe(data2 => {
-        console.log(data2);
-        this.getDocuments(this.id);
-      });
+      this.getDocuments(this.id);
     });
   }
   });
