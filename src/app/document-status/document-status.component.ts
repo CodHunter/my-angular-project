@@ -40,6 +40,8 @@ getDocuments(id): void {
         this.fileData = el;
       }
     });
+    this.certificateFiles.length = 0;
+    this.medicalFiles.length = 0;
     this.fileData.documents.forEach(element => {
       if (element.fileType === 'certificate') {
         this.certificateFiles.push(element);
@@ -82,6 +84,7 @@ handleFileInput(files: FileList, type): void {
       });
       this.claimService.saveClaimsData(this.id, data1).subscribe(data2 => {
         console.log(data2);
+        this.getDocuments(this.id);
       });
     });
   }
